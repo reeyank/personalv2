@@ -1,5 +1,5 @@
 import AppleMusicCard, { Root } from "@/components/ui/applemusic";
-import ReactPlayer from "react-player";
+import { Icons } from "@/components/ui/icons";
 
 export default async function Page() {
   return (
@@ -16,7 +16,10 @@ export default async function Page() {
 
           <div>
             <h2>Software Developer, College Student</h2>
-            <div className="bg-green-700 items-end">ICONS</div>
+            <div className="flex justify-center">
+              <Icons.gitHub className="h-8 m-2"/>
+              <Icons.react className="h-8 m-2"/>
+            </div>
           </div>
         </div>
       </div>

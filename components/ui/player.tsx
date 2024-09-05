@@ -9,7 +9,9 @@ export default function Player({ res }: { res: Root }) {
 
     return (
         <div className="flex flex-col mt-3 items-center">
-            {res.data[0].attributes.name} by {res.data[0].attributes.artistName}
+            <div>
+                My Last Listened to Song on Apple Music: <div className="font-bold">{res.data[0].attributes.name} by {res.data[0].attributes.artistName}</div>
+            </div>
             <div className="m-8 flex flex-col justify-center items-center p-2 rounded-xl" style={{
                 width: "fit-content",
                 backgroundColor: "#" + res.data[0].attributes.artwork.bgColor
@@ -25,5 +27,6 @@ export default function Player({ res }: { res: Root }) {
                     }}></audio>
             </div>
         </div>
+        
     )
 };
