@@ -1,16 +1,15 @@
 "use client"
-import ReactPlayer from "react-player"
+
 import { Root } from "./applemusic"
 import Image from 'next/image'
 
 export default function Player({ res }: { res: Root }) {
     const imageUrl = res.data[0].attributes.artwork.url.replace("{w}", "" + res.data[0].attributes.artwork.width +"").replace("{h}", "" + res.data[0].attributes.artwork.height +"")
-    console.log(res.data[0].attributes.artwork.bgColor)
 
     return (
-        <div className="flex flex-col mt-3 items-center">
+        <div className="flex flex-col mt-3 items-center justify-center">
             <div>
-                My Last Listened to Song on Apple Music: <div className="font-bold">{res.data[0].attributes.name} by {res.data[0].attributes.artistName}</div>
+                My Last Listened to Song on Apple Music: <div className="font-bold w-[90%]">{res.data[0].attributes.name} by {res.data[0].attributes.artistName}</div>
             </div>
             <div className="m-8 flex flex-col justify-center items-center p-2 rounded-xl" style={{
                 width: "fit-content",
