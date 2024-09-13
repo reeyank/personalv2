@@ -1,6 +1,7 @@
 import axios from "axios";
 import Player from "./player";
 import { cookies } from "next/headers";
+import { pause } from "@/lib/pause";
 
 export interface Root {
     next: string
@@ -58,12 +59,20 @@ export default async function AppleMusicCard() {
     // disable cookies for this server action
     const _cookies = cookies()
 
+    let lastApiResponse = null;
+
     let res = await axios.get<Root>("https://api.music.apple.com/v1/me/recent/played/tracks", {
       headers: {
           Authorization: `Bearer ${process.env.APPLE_DEV_TOKEN}`,
           "Music-User-Token": process.env.APPLE_MUSIC_TOKEN,
       },
     })
+
+    if (!pause && lastApiResponse) {
+      res = lastApiResponse;
+    } else if (!lastApiResponse) {
+      console.log("No lastApiResponse")
+    }
 
     return (
       <Player res={res.data} />
