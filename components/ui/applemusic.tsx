@@ -67,7 +67,7 @@ export default async function AppleMusicCard() {
       },
     })
 
-    let paused = await fetch("https://" + process.env.VERCEL_URL + '/admin/api', {
+    let paused = await fetch("http://" + process.env.URL + '/admin/api', {
       cache: 'no-cache'
     }).then((res) => res.text()).then((res) => res === 'true')
 
@@ -78,6 +78,7 @@ export default async function AppleMusicCard() {
     console.log(lastApiResponse?.data.data[0].attributes.name)
     console.log(res.data.data[0].attributes.name)
     return (
+      console.log(paused),
       <Player res={(paused) ? res.data : lastApiResponse!.data} />
     )
 }
