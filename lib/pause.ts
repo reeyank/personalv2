@@ -1,5 +1,5 @@
-export let pause = false;
+export let paused = false;
 
 export function setPause(pauseBool: boolean) {
-    pause = pauseBool;
+    paused = pauseBool;
 }
