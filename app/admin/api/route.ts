@@ -1,4 +1,4 @@
-let paused = false;
+let paused = true;
 
 export async function GET(request: Request) {
     return (
