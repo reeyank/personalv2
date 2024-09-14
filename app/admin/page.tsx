@@ -38,7 +38,7 @@ export default function Page() {
     return (
         <div className="flex justify-center items-center h-screen">
             <Button variant="destructive" onClick={togglePause}>
-            {text}
+                {text}
             </Button>
         </div>
     )
