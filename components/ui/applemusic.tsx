@@ -67,7 +67,7 @@ export default async function AppleMusicCard() {
       },
     })
 
-    let paused = await fetch("http://" + process.env.URL + '/admin/api', {
+    let paused = await fetch("https://" + process.env.VERCEL_URL + '/admin/api', {
       cache: 'no-cache'
     }).then((res) => res.text()).then((res) => res === 'true')
 
